@@ -16,5 +16,10 @@ pipeline {
             sh 'mvn package'
         }
     }
+     stage('archiveArtifact') {
+        steps {
+            archiveArtifacts artifacts: 'target/my-app-1.0-SNAPSHOT.jar'
+        }
+    }
    }
 }
