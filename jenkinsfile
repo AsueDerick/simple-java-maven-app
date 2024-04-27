@@ -1,1 +1,21 @@
-test
+# https://www.jenkins.io/doc/book/pipeline/syntax/#tools
+
+pipeline {
+   agent { label 'node' }
+   tools {
+     maven: 'mvn3.9'
+   }
+   stages {
+    stage('source') {
+        steps {
+            git url: 'https://github.com/clouddevopsguru123/simple-java-maven-app.git',
+                branch: 'master'
+        }
+    }
+    stage('package') {
+        steps {
+            sh 'mvn package'
+        }
+    }
+   }
+}
