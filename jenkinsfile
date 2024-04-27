@@ -4,6 +4,10 @@ pipeline {
    tools {
      maven 'mvn3.9'
    }
+   parameters {
+       choice(name: 'GOAL', choices: ['compile', 'test', 'package'], description: 'Pick something')
+
+   }
    stages {
     stage('source') {
         steps {
@@ -13,7 +17,7 @@ pipeline {
     }
     stage('package') {
         steps {
-            sh 'mvn package'
+            sh 'mvn ${params.GOAL}'
         }
     }
      stage('archiveArtifact') {
