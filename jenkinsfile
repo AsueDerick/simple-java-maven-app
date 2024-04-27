@@ -1,4 +1,3 @@
-# https://www.jenkins.io/doc/book/pipeline/syntax/#tools
 
 pipeline {
    agent { label 'node' }
