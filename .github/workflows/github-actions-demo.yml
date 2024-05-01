@@ -1,0 +1,19 @@
+name: started github action
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: run command
+        run: echo Welcome to github action
+      - name: run multiple commands or line
+        run: |
+          echo running the github action commands
+          ls -l
+          echo
+          java --version
+          echo
+          git --version
+          echo
+          mvn -v
